@@ -1,5 +1,9 @@
 import "./Products.css";
+
+import file from "../../data.json";
 export const Products = () => {
+  console.log(file);
+
   return (
     <div id="productMainDiv">
       <div>
@@ -65,6 +69,77 @@ export const Products = () => {
               </select>
             </div>
           </div>
+          <div id="productsContainer">
+            {file.map((el) => (
+              <div>
+                <div
+                  style={{
+                    backgroundImage: ` linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),url("${el.img}")`,
+                    height: "210px",
+                    width: "210px",
+                    backgroundRepeat: "no-repeat",
+                    backgroundSize: "cover",
+                  }}
+                  className="backgroundProductsDiv"
+                >
+                  <h1 className="makeBottom">{el.discounttext1}</h1>
+                  <h1 className="makeBig">{el.discounttext2}</h1>
+                </div>
+                <p style={{ fontWeight: "bold", marginTop: "10px" }}>
+                  {el.title}
+                </p>
+                <p>{el.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+      <div id="footer">
+        <div>
+          <div>
+            <img src="./Klarna-logo-white-png.png" alt="whitePngKlarna"></img>
+          </div>
+          <div>
+            <p>Klarna</p>
+            <p>About us</p>
+            <p>Careers</p>
+            <p>Legal</p>
+            <p>Press</p>
+            <p>Extra O blog</p>
+            <p>Privacy</p>
+            <p>Email connect</p>
+            <p>Sustainability</p>
+          </div>
+          <div>
+            <p>Customer</p>
+            <p>Buy now pay later</p>
+            <p>Contact us via app</p>
+            <p>Customer service</p>
+            <p>Klarna stores</p>
+            <p>shopping app</p>
+            <p>Rewards club</p>
+            <p>Buyer Protection Policy</p>
+            <p>Feedback and complaints</p>
+            <p>Shopping inspiration</p>
+          </div>
+          <div>
+            <p>Business</p>
+            <p>Sell with Klarna</p>
+            <p>Payment methods</p>
+            <p>Platforms and partners</p>
+            <p>Partner program</p>
+            <p>Business login</p>
+            <p>Business support</p>
+            <p>Operational status</p>
+          </div>
+        </div>
+        <div>
+          <p>
+            Monthly financing through Klarna is issued by WebBank, member FDIC.
+            Copyright © 2005-2022 Klarna Inc. NMLS #1353190, 629 N. High Street,
+            Third Floor, Columbus, OH 43215. Other CA resident loans made or
+            arranged pursuant to a California Finance Lenders Law license.
+          </p>
         </div>
       </div>
     </div>

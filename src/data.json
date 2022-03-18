@@ -1,0 +1,110 @@
+[
+    {
+        "title":"Feelunique",
+        "description":"Everything you need for flawless skin",
+        "discount":"30",
+        "discounttext1":"Save",
+        "discounttext2":"30%",
+        "type":"coupons",
+        "img":"./Assets/image(84).png"
+    },
+    {
+        "title":"Tommy Hilfinger",
+        "description":"Even more fresh styles",
+        "discount":"30",
+        "discounttext1":"Extra",
+        "discounttext2":"30% off",
+        "type":"coupons",
+        "img":"./Assets/image(74).jpeg"
+    },
+    {
+        "title":"Cole Haan",
+        "description":"Treat your feet",
+        "discount":"30",
+        "discounttext1":"Up to",
+        "discounttext2":"30% off",
+        "type":"exclusives",
+        "img":"./Assets/image(88).jpeg"
+    },
+    {
+        "title":"Jared The Galleria Of Jewelry",
+        "description":"Shimmer and shine",
+        "discount":"10",
+        "discounttext1":"Save",
+        "discounttext2":"10%",
+        "type":"BOGO",
+        "img":"./Assets/image(86).jpeg"
+    },
+    {
+        "title":"ELEMIS",
+        "description":"Find the truth in skincare",
+        "discount":"30",
+        "discounttext1":"Save",
+        "discounttext2":"30%",
+        "type":"coupons",
+        "img":"./Assets/image(92).jpeg"
+    },
+    {
+        "title":"Myprotein",
+        "description":"Unwrap your ambition",
+        "discount":"45",
+        "discounttext1":"Save",
+        "discounttext2":"45%",
+        "type":"exclusives",
+        "img":"./Assets/image(79).jpeg"
+    },
+    {
+        "title":"Nine West",
+        "description":"Spring heels event",
+        "discount":"50",
+        "discounttext1":"Save",
+        "discounttext2":"50%",
+        "type":"coupons",
+        "img":"./Assets/image(72).png"
+    },
+    {
+        "title":"Missguided",
+        "description":"Fresh looks",
+        "discount":"60",
+        "discounttext1":"Up to",
+        "discounttext2":"60% off",
+        "type":"BOGO",
+        "img":"./Assets/image(65).png"
+    },
+    {
+        "title":"Lenovo",
+        "description":"Transform your world",
+        "discount":"65",
+        "discounttext1":"Up to",
+        "discounttext2":"65% off",
+        "type":"exclusives",
+        "img":"./Assets/image(63).jpeg"
+    },
+    {
+        "title":"Kohl's",
+        "description":"Modern activewear",
+        "discount":"25",
+        "discounttext1":"Up to",
+        "discounttext2":"25% off",
+        "type":"BOGO",
+        "img":"./Assets/image(63).png"
+    },
+    {
+        "title":"JCPenney",
+        "description":"All for the family",
+        "discount":"30",
+        "discounttext1":"Up to",
+        "discounttext2":"30% off",
+        "type":"BOGO",
+        "img":"./Assets/image(60).png"
+    },
+    {
+        "title":"ASOS",
+        "description":"Fashion for fashionistas",
+        "discount":"25",
+        "discounttext1":"Save",
+        "discounttext2":"25% off",
+        "type":"coupons",
+        "img":"./Assets/image(60).png"
+    }
+]
