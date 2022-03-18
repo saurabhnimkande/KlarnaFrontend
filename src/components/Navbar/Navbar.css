@@ -1,7 +1,10 @@
 #navbarMainDiv {
   display: flex;
   height: 80px;
-  border: 1px solid red;
+  width: 100%;
+  background-color: white;
+  border-bottom: 1px solid #5f61632f;
+  position: fixed;
 }
 #navbarMainDiv > div:nth-child(1) {
   display: flex;

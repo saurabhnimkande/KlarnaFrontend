@@ -1,7 +1,7 @@
 #productMainDiv {
   padding-left: 70px;
   padding-right: 70px;
-  padding-top: 60px;
+  padding-top: 120px;
 }
 #productMainDiv > div:nth-child(1) > h1 {
   font-size: 45px;
@@ -11,6 +11,7 @@
 }
 #productMainDiv > div:nth-child(2) {
   display: flex;
+  margin-top: 60px;
 }
 #productMainDiv > div:nth-child(2) > div {
   border: 1px solid red;
@@ -21,4 +22,53 @@
 }
 #productMainDiv > div:nth-child(2) > div:nth-child(2) {
   flex-basis: 70%;
+}
+#productsDisplayDiv > div:nth-child(1) > input {
+  width: 99%;
+  height: 40px;
+  outline: none;
+  border: none;
+  border-bottom: 1px solid grey;
+  font-size: 15px;
+}
+#productsDisplayDiv > div:nth-child(1) > input:focus {
+  border-bottom: 2px solid black;
+}
+#productsDisplayDiv > div:nth-child(2) {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+#productsDisplayDiv > div:nth-child(2) > div:nth-child(2) > select {
+  width: 120px;
+  height: 35px;
+  outline: none;
+  border: none;
+  padding: 5px;
+}
+#productsDisplayDiv > div:nth-child(2) > div:nth-child(2) > select > option {
+  border: none;
+  padding: 5px;
+  height: 50px;
+}
+#productsDisplayDiv > div:nth-child(2) > div:nth-child(2) > select:hover {
+  background-color: rgba(61, 61, 61, 0.123);
+  border-radius: 20px;
+}
+#categoriesDiv > p {
+  font-size: 16px;
+  color: #5f6163;
+  cursor: pointer;
+}
+#categoriesDiv > p:hover {
+  color: black;
+}
+#categoriesDiv > div > p > input {
+  width: 20px;
+  height: 20px;
+  position: relative;
+  top: 5px;
+}
+#categoriesDiv > div > p {
+  vertical-align: middle;
 }
