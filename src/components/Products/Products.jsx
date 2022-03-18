@@ -1,8 +1,77 @@
 import "./Products.css";
-
-import file from "../../data.json";
+import { useEffect, useState } from "react";
 export const Products = () => {
-  console.log(file);
+  let [data, setData] = useState([]);
+  let [discount50, setDiscount50] = useState(false);
+  let [discount100, setDiscount100] = useState(false);
+  let [type1, setType1] = useState(false);
+  let [type2, setType2] = useState(false);
+  let [type3, setType3] = useState(false);
+  let [searchValue, setSearchValue] = useState("");
+
+  const getAllProducts = () => {
+    fetch(`http://localhost:2525/products/`)
+      .then((el) => el.json())
+      .then((val) => setData(val));
+  };
+
+  const getDiscountData = () => {
+    fetch(
+      `http://localhost:2525/products?discount50=${discount50}&discount100=${discount100}`
+    )
+      .then((el) => el.json())
+      .then((val) => setData(val));
+  };
+
+  const getTypeData = () => {
+    fetch(
+      `http://localhost:2525/products?type1=${type1}&type2=${type2}&type3=${type3}`
+    )
+      .then((el) => el.json())
+      .then((val) => setData(val));
+  };
+
+  const sortData = (val) => {
+    fetch(`http://localhost:2525/products?sort=${val}`)
+      .then((el) => el.json())
+      .then((val) => setData(val));
+  };
+
+  const handelSort = (e) => {
+    let option = e.target.value;
+
+    if (option === "normal") {
+      getAllProducts();
+    } else {
+      sortData(option);
+    }
+  };
+
+  useEffect(() => {
+    if (discount100 || discount50) {
+      getDiscountData();
+    } else if (type1 || type2 || type3) {
+      getTypeData();
+    } else if (searchValue) {
+      let search = setTimeout(() => {
+        let new_data = data.filter((obj) => {
+          let val1 = obj.title.toLowerCase();
+          let val2 = searchValue.toLowerCase();
+          if (val1.includes(val2)) {
+            return true;
+          } else {
+            return false;
+          }
+        });
+        setData(new_data);
+      }, 2000);
+      return () => {
+        clearTimeout(search);
+      };
+    } else {
+      getAllProducts();
+    }
+  }, [discount100, discount50, type1, type2, type3, searchValue]);
 
   return (
     <div id="productMainDiv">
@@ -32,45 +101,78 @@ export const Products = () => {
           <h4>Type</h4>
           <div>
             <p>
-              <input type="checkbox"></input> Only Coupons
+              <input
+                type="checkbox"
+                onChange={() => {
+                  setType1(!type1);
+                }}
+              ></input>{" "}
+              Only Coupons
             </p>
             <p>
-              <input type="checkbox"></input> Exclusives
+              <input
+                type="checkbox"
+                onChange={() => {
+                  setType2(!type2);
+                }}
+              ></input>{" "}
+              Exclusives
             </p>
             <p>
-              <input type="checkbox"></input> BOGO and more
+              <input
+                type="checkbox"
+                onChange={() => {
+                  setType3(!type3);
+                }}
+              ></input>{" "}
+              BOGO and more
             </p>
           </div>
           <hr></hr>
           <h4>Discount</h4>
           <div>
             <p>
-              <input type="checkbox"></input> 0-49% off
+              <input
+                type="checkbox"
+                onChange={() => {
+                  setDiscount50(!discount50);
+                }}
+              ></input>{" "}
+              0-49% off
             </p>
             <p>
-              <input type="checkbox"></input> 50-80% off
+              <input
+                type="checkbox"
+                onChange={() => {
+                  setDiscount100(!discount100);
+                }}
+              ></input>{" "}
+              50-80% off
             </p>
           </div>
           <hr></hr>
         </div>
         <div id="productsDisplayDiv">
           <div>
-            <input placeholder="Search"></input>
+            <input
+              placeholder="Search"
+              onChange={(e) => setSearchValue(e.target.value)}
+            ></input>
           </div>
           <div>
             <div>
               <p>93 deals</p>
             </div>
             <div>
-              <select>
-                <option>Featured</option>
-                <option>A-Z</option>
-                <option>Z-A</option>
+              <select onChange={handelSort}>
+                <option value="normal">Featured</option>
+                <option value="lowtohigh">A-Z</option>
+                <option value="hightolow">Z-A</option>
               </select>
             </div>
           </div>
           <div id="productsContainer">
-            {file.map((el) => (
+            {data.map((el) => (
               <div>
                 <div
                   style={{
