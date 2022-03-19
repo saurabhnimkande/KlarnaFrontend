@@ -1,5 +1,7 @@
+import { useState } from "react";
 import "./Navbar.css";
 export const Navbar = () => {
+  let [showHamburger, setShowHamburger] = useState(false);
   return (
     <div id="navbarMainDiv">
       <div>
@@ -26,11 +28,29 @@ export const Navbar = () => {
         <div>
           <button>Log in</button>
         </div>
-        <div>
+        <div id="hideButton">
           <button>Get the app</button>
         </div>
         <div id="mobileHamburger">
-          <h1>open</h1>
+          <span
+            className="material-icons-outlined"
+            onClick={() => setShowHamburger(!showHamburger)}
+          >
+            menu
+          </span>
+          {showHamburger ? (
+            <div id="mobileMenu">
+              <h2>Shop</h2>
+              <hr></hr>
+              <h2>How it works</h2>
+              <hr></hr>
+              <h2>Pay in 4</h2>
+              <hr></hr>
+              <h2>The shopping app</h2>
+              <hr></hr>
+              <h2>Help</h2>
+            </div>
+          ) : null}
         </div>
       </div>
     </div>

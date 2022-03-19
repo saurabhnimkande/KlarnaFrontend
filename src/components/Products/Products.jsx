@@ -10,14 +10,14 @@ export const Products = () => {
   let [searchValue, setSearchValue] = useState("");
 
   const getAllProducts = () => {
-    fetch(`http://localhost:2525/products/`)
+    fetch(`https://klarnaclone.herokuapp.com/products`)
       .then((el) => el.json())
       .then((val) => setData(val));
   };
 
   const getDiscountData = () => {
     fetch(
-      `http://localhost:2525/products?discount50=${discount50}&discount100=${discount100}`
+      `https://klarnaclone.herokuapp.com/products?discount50=${discount50}&discount100=${discount100}`
     )
       .then((el) => el.json())
       .then((val) => setData(val));
@@ -25,14 +25,14 @@ export const Products = () => {
 
   const getTypeData = () => {
     fetch(
-      `http://localhost:2525/products?type1=${type1}&type2=${type2}&type3=${type3}`
+      `https://klarnaclone.herokuapp.com/products?type1=${type1}&type2=${type2}&type3=${type3}`
     )
       .then((el) => el.json())
       .then((val) => setData(val));
   };
 
   const sortData = (val) => {
-    fetch(`http://localhost:2525/products?sort=${val}`)
+    fetch(`https://klarnaclone.herokuapp.com/products?sort=${val}`)
       .then((el) => el.json())
       .then((val) => setData(val));
   };
@@ -173,10 +173,10 @@ export const Products = () => {
           </div>
           <div id="productsContainer">
             {data.map((el) => (
-              <div>
+              <div key={el._id}>
                 <div
                   style={{
-                    backgroundImage: ` linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),url("${el.img}")`,
+                    backgroundImage: ` linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)),url("${el.img}")`,
                     height: "210px",
                     width: "210px",
                     backgroundRepeat: "no-repeat",
@@ -235,7 +235,7 @@ export const Products = () => {
             <p>Operational status</p>
           </div>
         </div>
-        <div>
+        <div id="moreDetailsDiv">
           <p>
             Monthly financing through Klarna is issued by WebBank, member FDIC.
             Copyright © 2005-2022 Klarna Inc. NMLS #1353190, 629 N. High Street,
